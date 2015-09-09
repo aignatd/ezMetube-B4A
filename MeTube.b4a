@@ -1,0 +1,164 @@
+﻿Version=4
+IconFile=
+NumberOfModules=6
+Module1=Login
+Module2=Utama
+Module3=Register
+Module4=Fungsi
+Module5=MNCUtils2Service
+Module6=MNChttpjob
+Build1=Default,metube.mncplaymedia.com
+DoNotOverwriteManifest=False
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:theme, "@android:style/Theme.Holo")~\n~'End of default text.~\n~
+NumberOfFiles=71
+File1=alarm52.png
+File2=arrowdown_icon.png
+File3=award73.png
+File4=back.png
+File5=back_icon.png
+File6=bawah.bal
+File7=bright2.png
+File8=browse.png
+File9=camera2.png
+File10=clothes17.png
+File11=coba.bal
+File12=config.json
+File13=content.bal
+File14=controller2.png
+File15=daftarisi.bal
+File16=draw21.png
+File17=emoticon85.png
+File18=favorite21.png
+File19=gear.png
+File20=gotham-bold.ttf
+File21=gotham-light.ttf
+File22=gotham-medium.ttf
+File23=home.png
+File24=images.jpg
+File25=info27.png
+File26=larva.jpg
+File27=larva.png
+File28=left224.png
+File29=line.png
+File30=line-divider.png
+File31=list.bal
+File32=listkiri.bal
+File33=lock105.png
+File34=lock24.png
+File35=Login.bal
+File36=login.png
+File37=logo_wp.png
+File38=marketing8.png
+File39=metube---copy.png
+File40=metubelogo.png
+File41=more.png
+File42=movie43.png
+File43=movie44.png
+File44=movies.png
+File45=music.png
+File46=note55.png
+File47=notes26.png
+File48=panelkiri.png
+File49=play_icon.png
+File50=progress.png
+File51=raid.jpg
+File52=register.bal
+File53=road22.png
+File54=setting.bal
+File55=smartphone.bal
+File56=soccer-cup.png
+File57=splashscreenhigh.png
+File58=splashscreenwide.png
+File59=square234.png
+File60=start3.png
+File61=televisions2.png
+File62=test.bal
+File63=tutup.png
+File64=umrah.jpg
+File65=up_arrows16.png
+File66=users81.png
+File67=utama.bal
+File68=video.png
+File69=warning.png
+File70=white line.png
+File71=wifi-signal1.png
+NumberOfLibraries=17
+Library1=core
+Library2=splashfade
+Library3=randomaccessfile
+Library4=reflection
+Library5=phone
+Library6=stringutils
+Library7=abwifi
+Library8=byteconverter
+Library9=encryption
+Library10=betterdialogs
+Library11=json
+Library12=mediabrowser
+Library13=ahviewpager
+Library14=http
+Library15=stringfunctions
+Library16=b4acoverflow
+Library17=b4agridview
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: MeTube
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: False
+#End Region
+
+#Region Image Sesuai Resolusi
+#AdditionalRes: ../drawable 
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+	
+	Private sfMain	As SplashFade
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	'Activity.LoadLayout("Layout1")
+
+	Activity.Color = Colors.ARGB(255, 50, 50, 50)
+
+	#Region Deteksi screen layar gadget
+	If GetDeviceLayoutValues.ApproximateScreenSize < 5 Then
+ 		'phones
+		sfMain.Initialize(Activity, Me, "metube---copy.png", Gravity.CENTER, 2000, 100, "Down", True)
+	Else
+  	'tablets
+		sfMain.Initialize(Activity, Me, "metube---copy.png", Gravity.CENTER, 2000, 100, "Down", True)
+	End If
+	#End Region
+
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+Sub Splash_Complete
+	Activity.Finish
+	StartActivity("Utama")
+End Sub
+
